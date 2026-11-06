@@ -112,14 +112,13 @@ export function BookingConsole({ services, barbers, paymentOptions, settings }: 
   const step = Math.min(s.step, furthest);
   const sent = s.submit.status === "sent";
 
-  const headingRef = useRef<HTMLHeadingElement>(null);
   const first = useRef(true);
   useEffect(() => {
     if (first.current) {
       first.current = false;
       return;
     }
-    headingRef.current?.focus({ preventScroll: true });
+    document.querySelector<HTMLElement>("#book [data-step-heading]")?.focus({ preventScroll: true });
   }, [step, sent]);
 
   const send = async () => {
@@ -201,7 +200,7 @@ export function BookingConsole({ services, barbers, paymentOptions, settings }: 
                 <Success s={s} settings={settings} />
               ) : (
                 <>
-                  <h3 ref={headingRef} tabIndex={-1} className={styles.stepTitle} data-step-heading>
+                  <h3 tabIndex={-1} className={styles.stepTitle} data-step-heading>
                     {STEPS[step].title}
                   </h3>
                   {step === 0 && <StepService {...props} />}

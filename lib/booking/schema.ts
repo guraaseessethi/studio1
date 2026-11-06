@@ -41,7 +41,7 @@ export const bookingRequestSchema = detailsSchema.extend({
   time: z.string().regex(/^\d{2}:\d{2}$/),
   payment: z.string().min(1),
   /** Honeypot: real visitors never see or fill this. */
-  website: z.string().max(0).optional(),
+  website: z.string().max(200).optional(),
 });
 
 export type BookingRequest = z.infer<typeof bookingRequestSchema>;
