@@ -2,6 +2,7 @@ import { Barbers } from "@/components/Barbers";
 import { BookingConsole } from "@/components/booking/Console";
 import { Gallery } from "@/components/Gallery";
 import { Hero } from "@/components/Hero";
+import { JsonLd } from "@/components/JsonLd";
 import { Picker } from "@/components/Picker";
 import { Reviews } from "@/components/Reviews";
 import { ServiceBoard } from "@/components/ServiceBoard";
@@ -16,6 +17,7 @@ export default async function Home() {
 
   return (
     <>
+      <JsonLd settings={settings} siteUrl={(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "")} />
       <Hero settings={settings} images={images} />
       <Picker chips={chips} services={services} />
       <ServiceBoard services={services} hstRate={settings.hstRate} />

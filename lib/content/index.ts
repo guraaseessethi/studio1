@@ -33,7 +33,8 @@ const IMG = `{alt, hotspot, crop, "ref": asset._ref, "dim": asset->metadata.dime
 const SETTINGS_PROJECTION = `{
   businessName, phone, street, city, region, postalCode, hours,
   google, booksy, ticker, heroStats, hstRate, slotIntervalMinutes, leadTimeMinutes,
-  showBooksyLink, cancellationPolicy, etransferDeadline
+  showBooksyLink, cancellationPolicy, etransferDeadline,
+  "seoTitle": seoTitle, "seoDescription": seoDescription, "ogRef": ogImage.asset._ref
 }`;
 
 const SETTINGS_QUERY = `*[_id == "siteSettings"][0]${SETTINGS_PROJECTION}`;
@@ -72,7 +73,8 @@ function mapImage(raw: RawImage | null | undefined, fallbackAlt = ""): ImageData
   };
 }
 
-type RawSettings = Partial<Omit<SiteSettings, "hours" | "phoneHref">> & {
+type RawSettings = Partial<Omit<SiteSettings, "hours" | "phoneHref" | "ogImageUrl">> & {
+  ogRef?: string;
   hours?: Partial<Record<Weekday, { closed?: boolean; open?: string; close?: string } | null>>;
 };
 
@@ -112,6 +114,11 @@ export function mapSettings(raw: RawSettings | null | undefined): SiteSettings {
     showBooksyLink: raw.showBooksyLink ?? d.showBooksyLink,
     cancellationPolicy: raw.cancellationPolicy || d.cancellationPolicy,
     etransferDeadline: raw.etransferDeadline || d.etransferDeadline,
+    seoTitle: raw.seoTitle || undefined,
+    seoDescription: raw.seoDescription || undefined,
+    ogImageUrl: raw.ogRef
+      ? urlFor({ _type: "image", asset: { _type: "reference", _ref: raw.ogRef } }).width(1200).height(630).fit("crop").url()
+      : undefined,
   };
 }
 

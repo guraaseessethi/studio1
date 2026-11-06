@@ -36,4 +36,7 @@ export type SiteSettings = {
   showBooksyLink: boolean;
   cancellationPolicy: string;
   etransferDeadline: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  ogImageUrl?: string;
 };

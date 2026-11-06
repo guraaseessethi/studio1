@@ -7,6 +7,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Ticker } from "@/components/Ticker";
 import { TopBar } from "@/components/TopBar";
 import { getSiteSettings } from "@/lib/content";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/defaults";
 import "./globals.css";
 
 const bebas = Bebas_Neue({
@@ -23,12 +24,27 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: "Studio 1 Barbershop | Barber in Barrie on Yonge St",
-  description:
-    "Fades, cuts, beard work and hot towel shaves in Barrie. 4.9 on Google, open 7 days. Book online.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const s = await getSiteSettings();
+  const title = s.seoTitle || DEFAULT_TITLE;
+  const description = s.seoDescription || DEFAULT_DESCRIPTION;
+  return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+    title,
+    description,
+    alternates: { canonical: "/" },
+    openGraph: {
+      type: "website",
+      siteName: s.businessName,
+      locale: "en_CA",
+      url: "/",
+      title,
+      description,
+      ...(s.ogImageUrl ? { images: [{ url: s.ogImageUrl, width: 1200, height: 630 }] } : {}),
+    },
+    twitter: { card: "summary_large_image", title, description },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: "#0f0f0f",

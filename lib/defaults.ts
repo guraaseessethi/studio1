@@ -2,6 +2,16 @@ import type { SiteSettings } from "./types";
 
 export const TIME_ZONE = "America/Toronto";
 
+/** Coordinates from the Google listing. */
+export const GEO = { latitude: 44.3715535, longitude: -79.6721404 };
+
+/** The name exactly as Google spells it, for structured data. */
+export const GOOGLE_NAME = "Studio 1 BARBERSHOP";
+
+export const DEFAULT_TITLE = "Studio 1 Barbershop | Barber in Barrie on Yonge St";
+export const DEFAULT_DESCRIPTION =
+  "Fades, cuts, beard work and hot towel shaves in Barrie. 4.9 on Google, open 7 days. Book online.";
+
 export const BOOKSY_URL =
   "https://booksy.com/en-ca/21023_studio-1-barbershop_barbershop_893463_barrie";
 export const GOOGLE_URL =
