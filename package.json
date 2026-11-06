@@ -6,10 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "seed": "node --env-file=.env.local --import tsx scripts/seed.ts",
+    "seed:dry": "node --import tsx scripts/seed.ts --dry-run"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",
+    "@sanity/client": "^7.28.0",
     "@sanity/icons": "^5.2.3",
     "@sanity/image-url": "^2.1.1",
     "@sanity/orderable-document-list": "^2.0.28",
@@ -28,6 +32,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.5",
+    "lexorank": "^1.0.5",
     "tsx": "^4.23.15",
     "typescript": "^5"
   }
