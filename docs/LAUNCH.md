@@ -6,14 +6,25 @@ No secrets belong in this file. Put values in Vercel and `.env.local`.
 
 1. Project and dataset: project ID goes in `NEXT_PUBLIC_SANITY_PROJECT_ID`, dataset `production` (public).
 2. API token: sanity.io/manage → project → API → Tokens → add token with **Editor** access. Save it as `SANITY_API_WRITE_TOKEN` in Vercel and in `.env.local`. It is only ever used on the server.
-3. Add the owner: sanity.io/manage → Members → invite their email as **Editor**. They sign in at `/studio` with Sanity's own login.
+3. Add the owner: sanity.io/manage → Members → invite their email as **Editor**. They sign in to the Studio with Sanity's own login.
 4. CORS origins (API → CORS origins), each with **Allow credentials** on:
    - `http://localhost:3000`
    - the Vercel URL, e.g. `https://<project>.vercel.app`
    - the live domain once connected, e.g. `https://www.<domain>`
-5. Seed starter content (after the token is in `.env.local`): `npm run seed`.
+   (The website only talks to Sanity from the server, so these matter for any browser-side Sanity call you add later. The hosted Studio needs no entry.)
+5. Seed starter content (after the token is in `web/.env.local`): `cd web && npm run seed`.
 
-## 2. Vercel environment variables
+## 1b. Studio (owner's editing screen)
+
+1. `cd studio && cp .env.example .env`, fill in the project ID.
+2. Use Node 22.12 or newer (`nvm use` / `fnm use` reads `.nvmrc`).
+3. `npx sanity login`, then `npm run deploy`. The Studio goes live at `https://studio-1-barbershop.sanity.studio` (free Sanity hosting). If that name is taken, change `studioHost` in `studio/sanity.cli.ts`.
+4. Put that URL in the website's `STUDIO_URL` variable, so "Open in Studio" links in booking emails work.
+5. Send the owner that URL. They sign in with the Sanity account you invited.
+
+## 2. Vercel (website)
+
+Import the GitHub repo and set **Root Directory** to `web`. Then add these environment variables:
 
 | Variable | Value |
 | --- | --- |
@@ -24,6 +35,7 @@ No secrets belong in this file. Put values in Vercel and `.env.local`.
 | `SANITY_BOOKING_WEBHOOK_SECRET` | A different long random string (same as webhook 2) |
 | `RESEND_API_KEY` | From resend.com → API Keys |
 | `BOOKING_FROM_EMAIL` | `onboarding@resend.dev` until the domain is verified, then `bookings@<domain>` |
+| `STUDIO_URL` | The hosted Studio URL from step 1b, no trailing slash |
 | `NEXT_PUBLIC_SITE_URL` | Final site URL, no trailing slash |
 | `PAYMENTS_HELCIM_ENABLED` | `false` |
 | `HELCIM_API_TOKEN` | leave empty until Helcim is built |
