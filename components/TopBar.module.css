@@ -1,0 +1,66 @@
+.bar {
+  display: none;
+  background: var(--black);
+  color: var(--cream);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .bar {
+    display: block;
+  }
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 10px var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 24px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot,
+.dotOpen {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--grey-muted);
+}
+
+.dotOpen {
+  background: var(--coffee-light);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.links a {
+  color: var(--cream);
+  text-decoration: none;
+  min-height: 24px;
+}
+
+.links a:hover {
+  color: var(--coffee-light);
+}
+
+.links .book {
+  color: var(--coffee-light);
+}
+
+.links .book:hover {
+  color: var(--white);
+}
