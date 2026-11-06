@@ -1,0 +1,102 @@
+.section {
+  background: var(--cream);
+  padding: var(--section-y) 0;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 20px;
+  background: var(--white);
+  color: var(--black);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.badge:hover {
+  background: var(--latte);
+  color: var(--black);
+}
+
+.badgeValue {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.badgeLabel {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey-muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  margin: 0;
+  padding: 30px;
+  background: var(--white);
+}
+
+.mark {
+  font-family: var(--font-display);
+  font-size: 56px;
+  line-height: 0.5;
+  color: var(--coffee-light);
+}
+
+.quote {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey-muted);
+}

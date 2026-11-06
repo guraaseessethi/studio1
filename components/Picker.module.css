@@ -1,0 +1,156 @@
+.section {
+  background: var(--black);
+  color: var(--cream);
+  padding: var(--section-y) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
+  gap: 48px;
+  align-items: start;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.title {
+  font-size: clamp(48px, 5.4vw, 80px);
+}
+
+.lead {
+  margin: 0;
+  max-width: 420px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--on-dark-muted);
+}
+
+.picker {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid #5a5550;
+  background: transparent;
+  color: var(--on-dark);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.chip:hover {
+  border-color: var(--coffee-light);
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--cream);
+  border-color: var(--cream);
+  color: var(--black);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  min-height: 180px;
+  padding: 28px;
+  border: 1px solid var(--border-dark);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--on-dark);
+}
+
+.emptyLabel,
+.recLabel {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--on-dark-muted);
+}
+
+.rec {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.recMain {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.recMain .recLabel {
+  color: var(--coffee-light);
+}
+
+.recName {
+  font-family: var(--font-display);
+  font-size: 44px;
+  line-height: 1;
+}
+
+.recDesc {
+  font-size: 15px;
+  color: var(--on-dark);
+}
+
+.facts {
+  display: flex;
+  gap: 24px;
+}
+
+.fact {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-dark);
+}
+
+.addon {
+  font-size: 14px;
+  color: var(--on-dark-muted);
+}
+
+.addon strong {
+  font-weight: 400;
+  color: var(--cream);
+}

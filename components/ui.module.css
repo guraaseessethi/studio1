@@ -61,7 +61,10 @@
 }
 
 .btnOutline {
-  composes: btnLg;
+  composes: btn;
+  min-height: 54px;
+  padding: 0 30px;
+  letter-spacing: 0.14em;
   background: transparent;
   color: var(--black);
 }
@@ -73,7 +76,10 @@
 }
 
 .btnLight {
-  composes: btnLg;
+  composes: btn;
+  min-height: 54px;
+  padding: 0 30px;
+  letter-spacing: 0.14em;
   background: var(--cream);
   border-color: var(--cream);
   color: var(--black);

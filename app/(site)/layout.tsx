@@ -6,7 +6,7 @@ import { MobileBar } from "@/components/MobileBar";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Ticker } from "@/components/Ticker";
 import { TopBar } from "@/components/TopBar";
-import { getSiteSettings } from "@/lib/siteSettings";
+import { getSiteSettings } from "@/lib/content";
 import "./globals.css";
 
 const bebas = Bebas_Neue({

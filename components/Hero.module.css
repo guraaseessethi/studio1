@@ -1,0 +1,151 @@
+.hero {
+  background: var(--white);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 56px;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 64px;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    padding-top: 72px;
+    padding-bottom: 96px;
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--grey-muted);
+}
+
+.rule {
+  width: 48px;
+  height: 1px;
+  background: var(--black);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(62px, 8.4vw, 132px);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--coffee);
+}
+
+.intro {
+  margin: 0;
+  max-width: 520px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--grey-body);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--latte);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat dd {
+  margin: 0;
+}
+
+.value {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey-muted);
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 14px;
+  align-items: end;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--latte);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.small {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--latte);
+}
+
+.today {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  background: var(--cream);
+}
+
+.todayLabel {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--coffee-text);
+}
+
+.todayHours {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1;
+}

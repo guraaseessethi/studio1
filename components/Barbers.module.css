@@ -1,0 +1,172 @@
+.section {
+  background: var(--cream);
+  padding: var(--section-y) 0;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lead {
+  margin: 0;
+  max-width: 320px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--grey-body);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border: none;
+  outline: 1px solid var(--latte);
+  outline-offset: -1px;
+  background: var(--white);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.card[aria-pressed="true"] {
+  outline: 2px solid var(--black);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--coffee);
+  outline-offset: 2px;
+}
+
+.thumb {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--latte);
+}
+
+.placeholder {
+  padding: 10px;
+  font-size: 12px;
+  color: var(--grey-muted);
+}
+
+.cardName {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.cardRole {
+  min-height: 1em;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey-muted);
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  background: var(--white);
+}
+
+.photo {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  min-height: 280px;
+  aspect-ratio: 4 / 3;
+  background: var(--latte);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 16px;
+}
+
+@media (min-width: 1024px) {
+  .body {
+    padding: 32px;
+  }
+}
+
+.role {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--coffee-text);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 64px;
+  line-height: 0.9;
+}
+
+.nick {
+  font-size: 0.5em;
+  color: var(--coffee);
+}
+
+.bio {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--grey-body);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  font-size: 14px;
+}
+
+.facts dt {
+  margin-bottom: 6px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey-muted);
+}
+
+.facts dd {
+  margin: 0;
+}
